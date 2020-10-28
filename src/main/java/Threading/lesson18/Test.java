@@ -1,33 +1,35 @@
 package Threading.lesson18;
 
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
-//        MyThread myThread = new MyThread();
-//        myThread.start();
-//
-//        MyThread myThread1 = new MyThread();
-//        myThread1.start();
+        MyThread myThread = new MyThread();
+        myThread.start();
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
 
-        Thread thread = new Thread(new Runner());
-        thread.start();
+        myThread.shutdown();
     }
+
 }
 
-class Runner implements Runnable{
+class MyThread extends Thread {
+    private volatile boolean running = true;
 
     @Override
     public void run() {
-        for (int i = 0; i < 1000; i++){
-            System.out.println("Hello from MyThread" + i );
+        while (running) {
+            System.out.println("Hello");
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
-}
 
-
-class MyThread extends Thread{
-    public void run(){
-        for (int i = 0; i < 1000; i++){
-            System.out.println("Hello from MyThread" + i );
-        }
+    public void shutdown() {
+        this.running = false;
     }
 }

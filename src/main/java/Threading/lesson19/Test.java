@@ -3,13 +3,8 @@ package Threading.lesson19;
 public class Test {
     private int counter;
 
-    public static void main(String[] args) throws InterruptedException {
-        Test test = new Test();
 
-        test.doWork();
-    }
-
-    public  void increment(){
+    public synchronized  void increment(){
         counter++;
     }
 
@@ -37,5 +32,11 @@ public class Test {
         thread2.join();
 
         System.out.println(counter);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Test test = new Test();
+
+        test.doWork();
     }
 }
