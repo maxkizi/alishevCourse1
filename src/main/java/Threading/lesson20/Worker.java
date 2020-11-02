@@ -4,15 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Test {
-    public static void main(String[] args) {
-        Worker worker = new Worker();
-        worker.main();
-
-    }
-}
-
-
 class Worker {
     Random random = new Random();
 
@@ -23,7 +14,7 @@ class Worker {
     private List<Integer> list2 = new ArrayList<>();
 
     public  void addToListOne() {
-        /*synchronized (lock1) */ {
+        /*synchronized (lock1)*/  {
             try {
                 Thread.sleep(1);
             } catch (InterruptedException e) {
@@ -54,8 +45,7 @@ class Worker {
 
     }
 
-
-    public void main() {
+    public  void main() {
         long before = System.currentTimeMillis();
 
         Thread thread1 = new Thread(new Runnable() {

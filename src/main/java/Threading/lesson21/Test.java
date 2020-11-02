@@ -11,7 +11,7 @@ public class Test {
         for (int i = 0; i <5; i++)
             executorService.submit(new Work(i));
 
-        executorService.shutdown();
+//        executorService.shutdown();
         System.out.println("All tasks submitted");
 
         executorService.awaitTermination(1, TimeUnit.DAYS);
@@ -26,6 +26,8 @@ class Work implements Runnable{
 
     @Override
     public void run() {
+        System.out.println("Work" + id + " was started");
+
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

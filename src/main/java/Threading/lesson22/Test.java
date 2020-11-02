@@ -1,11 +1,14 @@
 package Threading.lesson22;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingDeque;
+
 
 public class Test {
     private static ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
+    List<String> list = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
         Thread thread1 = new Thread(new Runnable() {
