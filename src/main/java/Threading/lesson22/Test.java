@@ -50,6 +50,7 @@ public class Test {
 
     private static void consumer() throws InterruptedException {
         Random random = new Random();
+
         while (true) {
             Thread.sleep(100);
 
